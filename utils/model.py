@@ -31,18 +31,7 @@ class AttentionLayer(nn.Module):
         V = self.v_proj(x).view(B, N, self.num_heads, self.head_dim).transpose(1, 2)  # B,H,N,head_dim
 
         scores = torch.matmul(Q, K.transpose(-2, -1)) / math.sqrt(self.head_dim)  # B,H,N,N
-
-        # if self.pairwise: # add pairwise bias only if enabled
-        #     if pairwise_feats is None:
-        #         raise ValueError("pairwise_feats must be provided when pairwise is True")
-        #     bias_logits = self.bias_mlp(pairwise_feats)  # (B, N, N, H)
-        #     bias_logits = bias_logits.permute(0, 3, 1, 2)  # (B, H, N, N)
-        #     scores = scores + bias_logits
         
-        # if key_padding_mask is not None:
-        #     mask = key_padding_mask.unsqueeze(1).unsqueeze(2)  # B,1,1,N
-        #     scores = scores.masked_fill(mask == True, float('-inf'))
-
         if pad_mask is not None:
             mask = pad_mask.unsqueeze(1).unsqueeze(2)  # B,1,1,N
             scores = scores.masked_fill(mask == True, float('-inf'))
