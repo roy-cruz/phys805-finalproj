@@ -27,9 +27,9 @@ class metrics:
         self.preds = []
         self.labels = []
 
-def plot_roc(labels, pobs):
+def plot_roc(labels, probs):
 
-    fpr, tpr, _ = roc_curve(labels, pobs)
+    fpr, tpr, _ = roc_curve(labels, probs)
     roc_auc = auc(fpr, tpr)
 
     fig, ax = plt.subplots()
@@ -46,10 +46,10 @@ def plot_roc(labels, pobs):
 
 def plot_scores(sig_scores, bkg_scores, bins=50, range=(0,1), logscale=False):
     fig, ax = plt.subplots()
-    ax.hist(sig_scores, bins=bins, range=range, density=True, alpha=0.5, label='Signal', histtype='step', linewidth=1.5)
-    ax.hist(bkg_scores, bins=bins, range=range, density=True, alpha=0.5, label='Background', histtype='step', linewidth=1.5)
+    ax.hist(sig_scores, bins=bins, range=range, density=True, alpha=0.5, label='EMJ', histtype='step', linewidth=1.5)
+    ax.hist(bkg_scores, bins=bins, range=range, density=True, alpha=0.5, label='QCD', histtype='step', linewidth=1.5)
     ax.set_xlabel('Classifier Score')
-    ax.set_ylabel('Frequency')
+    ax.set_ylabel('Count')
     ax.set_yscale('log' if logscale else 'linear')
     ax.set_title('Classifier Score Distribution')
     ax.legend(loc='upper center')

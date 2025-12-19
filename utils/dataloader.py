@@ -9,20 +9,14 @@ class JetDataset(torch.utils.data.Dataset):
             data: torch.Tensor, 
             norm_constants: dict, 
             labels: Union[torch.Tensor, None] = None, 
-            pudecorr_mu: Union[torch.Tensor, None] = None,
-            pudecorr_sigma: Union[torch.Tensor, None] = None
         ):
         self.data = data
         self.labels = labels
         assert isinstance(norm_constants, dict)
         self.norm = norm_constants
-        # self._compute_pu_decorell()
     
     def __len__(self):
         return self.data.shape[0]
-
-    # def compute_pu_decorrel(self):
-
     
     def make_padding_mask(self, x):
         return x[...,0] == 0

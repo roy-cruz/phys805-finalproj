@@ -135,7 +135,6 @@ class MLPClassifier(nn.Module):
             ]
         )
         self.output_layer = nn.Linear(hidden_dim, output_dim)
-        # softmax
         self.dropout = nn.Dropout(dropout_rate)
         self.relu = nn.ReLU()
 
