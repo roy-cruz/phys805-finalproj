@@ -21,7 +21,8 @@ This project is meant to be run with the `CMSSW_14_0_22` software toolkit. The o
 ```bash
 source /cvmfs/cms.cern.ch/cmsset_default.sh
 cmsrel CMSSW_14_0_22
-cd CMSSW_14_0_22/src && cmsenv && cd -
+cd CMSSW_14_0_22/src
+cmsenv && scram-venv && cmsenv
 pip3 install --no-deps torch wandb
 ```
 
