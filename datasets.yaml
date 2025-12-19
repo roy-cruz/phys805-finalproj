@@ -1,8 +1,10 @@
 QCD:
   redir: root://cmseos.fnal.gov/
   datasets:
+  # Centrally produced QCD sample, copied to personal EOS area
   - QCD_Pt-15To7000_TuneCP5_13p6TeV_pythia8: /store/user/rcruzcan/ml4phys/625347c8-34f6-4589-b952-a651543145ef.root
 EMJ:
   redir: root://cmseos.fnal.gov/
   datasets:
+  # Signal EJ sample, privately produced
   - mMed-2000_mDark-20_ctau-2000: /store/user/rcruzcan/EMJsamples_AXOv4/step_NANOAODv12_s-channel_mMed-2000_mDark-20_ctau-2000_unflavored-down_n-1000_wScores.root
