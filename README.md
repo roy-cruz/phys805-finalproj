@@ -32,3 +32,5 @@ python3 -m venv venv
 source venv/bin/activate
 pip3 install -r requirements.txt
 ```
+
+To access the samples in order to re-run the notebook, you will need a valid CERN grid certificate and to be a member of CMS. Instructions on how to setup your certificate as well as the initialization of the VOMS proxy can be found in this [TWiki page](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookStartingGrid#ObtainingCert).
